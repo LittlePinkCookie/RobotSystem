@@ -2,8 +2,8 @@ from aiohttp import web
 
 import socketio
 
-from config_reader import ConfigReader
-from utils import convert_to_bool, authenticate_controller
+from server.config_reader import ConfigReader
+from server.utils import authenticate_controller
 from system import camera
 
 config = ConfigReader('config.json')
@@ -31,13 +31,13 @@ class Server:
             camera_port = config.get_param("camera.port")
             print("Starting camera on port {}...".format(camera_port))
             try:
-                camera.start_camera(config.get_param("camera.width"), config.get_param("camera.height"), config.get_param("camera.fps"), camera_port)
+                camera.start_camera(config.get_param("camera.width"), config.get_param("camera.height"),
+                                    config.get_param("camera.fps"), camera_port)
                 print("Started camera on port {} !".format(camera_port))
                 await sio.emit(event='start_camera', to=self.controllerID)
             except Exception as e:
                 print("Unable to start camera for reason : {}".format(e))
                 await sio.emit(event='error', data=e, to=self.controllerID)
-
 
         @sio.event
         def disconnect(sid):
