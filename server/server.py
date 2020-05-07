@@ -4,7 +4,7 @@ import socketio
 
 from config_reader import config
 from server.utils import authenticate_controller
-from system import camera
+from system.camera import camera
 
 debug_mode = config.get_param("server.debug")
 
