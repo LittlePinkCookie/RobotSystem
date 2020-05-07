@@ -2,7 +2,7 @@ from aiohttp import web
 
 import socketio
 
-from system.config_reader import config
+from config_reader import config
 from server.utils import authenticate_controller
 from system import camera
 

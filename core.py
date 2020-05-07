@@ -1,6 +1,6 @@
 from aiohttp import web
 
-from system.config_reader import config
+from config_reader import config
 from server.server import Server
 
 if __name__ == '__main__':
