@@ -42,8 +42,3 @@ class Server:
         @sio.event
         def disconnect(sid):
             print('disconnect ', sid)
-
-
-if __name__ == '__main__':
-    server = Server()
-    web.run_app(server.app)
