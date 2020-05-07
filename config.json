@@ -1,6 +1,7 @@
 {
   "server": {
-    "debug": true
+    "debug": true,
+    "port": 2000
   },
   "camera": {
     "width": 1280,

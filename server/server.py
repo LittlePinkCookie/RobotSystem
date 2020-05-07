@@ -2,11 +2,10 @@ from aiohttp import web
 
 import socketio
 
-from server.config_reader import ConfigReader
+from system.config_reader import config
 from server.utils import authenticate_controller
 from system import camera
 
-config = ConfigReader('config.json')
 debug_mode = config.get_param("server.debug")
 
 
